@@ -33,7 +33,8 @@ function gradeQuiz(candidateAnswers) {
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
 let j = 0
   while (j < questions.length) {
-  console.log(`Your answer was ${candidateAnswers[j]} the correct answer is ${correctAnswers[j]}`);
+  console.log(`Your answer was ${candidateAnswers[j]}.
+  The correct answer is ${correctAnswers[j]}.`);
   j++;
 }
 
