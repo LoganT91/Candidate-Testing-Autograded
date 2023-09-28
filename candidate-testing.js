@@ -18,18 +18,14 @@ let candidateAnswers = [];
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
-candidateName = input.question("What is your name?");
+candidateName = input.question("What is your name?: ");
 }
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
 for (let i = 0; i < questions.length; i++) {
-  candidateAnswers = input.question(`${questions[i]}`);
-  while (candidateAnswers === correctAnswers[i] || candidateAnswers != correctAnswers[i]) {
-    candidateAnswers.push();
+    candidateAnswers.push(input.question(`${questions[i]}`));
   }
-}
-
 }
 
 function gradeQuiz(candidateAnswers) {
@@ -41,10 +37,21 @@ let j = 0
   j++;
 }
 
-
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-
-
+  let gradeAnswers = []; 
+  let grade = 0;  //TODO 3.2 use this variable to calculate the candidates score.
+  for (let k = 0; k < questions.length; k++) {
+    if (candidateAnswers[k].toLowerCase() === correctAnswers[k].toLowerCase()) {
+      gradeAnswers.push(`${candidateAnswers[k]}`);
+      grade = (gradeAnswers.length / questions.length * 100);
+    }
+  }
+  if (grade >= 80) {
+    console.log(`Your grade: ${grade} 
+    Passed!`);
+  } else {
+    console.log(`Your grade: ${grade}
+    Failed.`)
+  }
   return grade;
 }
 
